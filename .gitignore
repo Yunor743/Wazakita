@@ -1,0 +1,7 @@
+*.o
+*.a
+index
+wazakita
+.idea
+cmake-build-*
+build/
