@@ -10,6 +10,6 @@ target_include_directories(wazakita PRIVATE
 )
 
 target_sources(wazakita PRIVATE
-
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/task.cpp
 )
 
