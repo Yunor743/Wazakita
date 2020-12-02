@@ -7,7 +7,8 @@
 
 #include <iostream>
 #include <algorithm>
-#include "task.hpp"
+#include <vector>
+#include "main.hpp"
 
 static std::vector<std::pair<std::vector<unsigned>, unsigned>> process(std::vector<std::vector<bool>> &matrix, unsigned row_index, unsigned zindex, std::vector<unsigned> &prev)
 {
@@ -33,7 +34,6 @@ static std::vector<std::pair<std::vector<unsigned>, unsigned>> process(std::vect
 
 static std::vector<std::vector<unsigned>> group(std::vector<std::pair<std::vector<unsigned>, unsigned>> zindexes)
 {
-    // TODO
     std::vector<std::vector<unsigned>> ret;
     auto max_index = 0;
     for (const auto &zindex : zindexes)
@@ -69,11 +69,13 @@ static std::vector<std::vector<unsigned>> clean(std::vector<std::vector<unsigned
     return nodes;
 }
 
-Task::Task(std::vector<std::vector<bool>> matrix)
+std::vector<std::vector<unsigned>> task(std::vector<std::vector<bool>> matrix, unsigned start_row_index)
 {
+    std::vector<std::vector<unsigned>> nodes;
     std::vector<unsigned> prev;
-    auto zindexes = process(matrix, 0, 0, prev);
+    auto zindexes = process(matrix, start_row_index, 0, prev);
     nodes = group(zindexes);
     nodes = clean(nodes);
-    nodes.insert(nodes.begin(), {0});
+    nodes.insert(nodes.begin(), {start_row_index});
+    return nodes;
 }

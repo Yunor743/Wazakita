@@ -6,7 +6,8 @@
 */
 
 #include <iostream>
-#include "task.hpp"
+#include <vector>
+#include "main.hpp"
 
 static void display(std::vector<std::vector<unsigned>> res)
 {
@@ -22,11 +23,12 @@ static void display(std::vector<std::vector<unsigned>> res)
 int main()
 {
     std::vector<std::vector<bool>> matrix = {
-        {0, 1, 1, 1},
-        {1, 0, 1, 1},
-        {1, 1, 0, 1},
-        {1, 1, 1, 0}
+            {0, 1, 1, 0},
+            {1, 0, 1, 1},
+            {1, 1, 0, 0},
+            {0, 1, 0, 0}
     };
+
 //    std::vector<std::vector<bool>> matrix = {
 //            {0, 1, 0, 1, 0, 0},
 //            {1, 0, 0, 0, 1, 0},
@@ -35,7 +37,9 @@ int main()
 //            {0, 1, 0, 1, 0, 0},
 //            {0, 0, 0, 1, 0, 0},
 //    };
-    Task task3(matrix);
-    display(task3.get());
+
+    auto tree = task(matrix, 0);
+    display(tree);
+    mean(matrix);
     return 0;
 }
