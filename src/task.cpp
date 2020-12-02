@@ -35,8 +35,15 @@ static std::vector<std::vector<unsigned>> group(std::vector<std::pair<std::vecto
 {
     // TODO
     std::vector<std::vector<unsigned>> ret;
+    auto max_index = 0;
+    for (const auto &zindex : zindexes)
+        if (zindex.second > max_index) max_index = zindex.second;
+    ret.resize(max_index + 1);
     for (const auto &zindex : zindexes) {
-        ret.push_back(zindex.first);
+        auto &dest = ret.at(zindex.second);
+        auto &src = zindex.first;
+        dest.reserve(dest.size() + src.size());
+        dest.insert(dest.end(), src.begin(), src.end());
     }
     return ret;
 }

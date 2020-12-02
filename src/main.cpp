@@ -21,20 +21,20 @@ static void display(std::vector<std::vector<unsigned>> res)
 
 int main()
 {
-//    std::vector<std::vector<bool>> matrix = {
-//        {0, 1, 1, 0},
-//        {1, 0, 1, 1},
-//        {1, 1, 0, 0},
-//        {0, 1, 0, 0}
-//    };
     std::vector<std::vector<bool>> matrix = {
-            {0, 1, 0, 1, 0, 0},
-            {1, 0, 0, 0, 1, 0},
-            {0, 0, 0, 1, 0, 0},
-            {1, 0, 1, 0, 1, 1},
-            {0, 1, 0, 1, 0, 0},
-            {0, 0, 0, 1, 0, 0},
+        {0, 1, 1, 1},
+        {1, 0, 1, 1},
+        {1, 1, 0, 1},
+        {1, 1, 1, 0}
     };
+//    std::vector<std::vector<bool>> matrix = {
+//            {0, 1, 0, 1, 0, 0},
+//            {1, 0, 0, 0, 1, 0},
+//            {0, 0, 0, 1, 0, 0},
+//            {1, 0, 1, 0, 1, 1},
+//            {0, 1, 0, 1, 0, 0},
+//            {0, 0, 0, 1, 0, 0},
+//    };
     Task task3(matrix);
     display(task3.get());
     return 0;
